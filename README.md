@@ -20,7 +20,4 @@ In the code snippet below you can see how a basic domain Entity and its reposito
 
 This approach will allow to define the tests of my repository port without any dependency on frameworks, and reuse those tests once the team decides what database solutions will be used. Once the domain is better defined, being more stable, the team can move forward to choose the best database technology and create the required adapters, reusing the existing tests to verify the solution.
 
---> Start with in-memory, but then, what happen with my tests?
---> Explain the classical layered approach, which does nto work since entities are tables
---> Explain the approach of hexagonal architecture, ubitquituous language expressed in the repository as well, riched domain entieies, tell-don't-ask.
---> Show the code for a simple domain, with in-memory repository and then postgres repository.
+All the code of this article can be found in this github repository.
