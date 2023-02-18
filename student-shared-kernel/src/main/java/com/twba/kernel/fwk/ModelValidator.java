@@ -1,10 +1,11 @@
 package com.twba.kernel.fwk;
 
-import javax.validation.ConstraintViolation;
-import javax.validation.Validator;
+import jakarta.validation.ConstraintViolation;
+import jakarta.validation.Validator;
+
 import java.util.Set;
 
-import static javax.validation.Validation.buildDefaultValidatorFactory;
+import static jakarta.validation.Validation.buildDefaultValidatorFactory;
 
 public abstract class ModelValidator {
 

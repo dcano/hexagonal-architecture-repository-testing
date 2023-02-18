@@ -1,7 +1,8 @@
 package com.twba.kernel.fwk;
 
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
+
 import java.util.Objects;
 
 /**

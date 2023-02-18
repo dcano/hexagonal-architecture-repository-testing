@@ -1,23 +1,22 @@
-package com.twba.kernel.fwk;
+package com.twba.students;
 
-import jakarta.validation.constraints.NotNull;
+import com.twba.kernel.fwk.ValueObject;
 
 import java.util.Objects;
 
-public final class CorrelationId {
+class CategoryId extends ValueObject {
 
-    @NotNull
     private final String value;
 
-    private CorrelationId(String correlationId) {
-        this.value = correlationId;
+    private CategoryId(String value) {
+        this.value = value;
     }
 
-    public static CorrelationId of(String correlationId) {
-        return new CorrelationId(correlationId);
+    static CategoryId of(String value) {
+        return new CategoryId(value);
     }
 
-    public String value() {
+    String value() {
         return value;
     }
 
@@ -25,7 +24,7 @@ public final class CorrelationId {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        CorrelationId that = (CorrelationId) o;
+        CategoryId that = (CategoryId) o;
         return Objects.equals(value, that.value);
     }
 

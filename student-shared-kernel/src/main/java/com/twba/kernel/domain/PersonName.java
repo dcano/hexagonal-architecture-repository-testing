@@ -1,9 +1,9 @@
 package com.twba.kernel.domain;
 
 import com.twba.kernel.fwk.ValueObject;
+import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 
-import javax.validation.constraints.NotNull;
 import java.util.Objects;
 
 @Getter
@@ -18,14 +18,6 @@ public class PersonName extends ValueObject {
     public PersonName(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
-    }
-
-    public String firstName() {
-        return firstName;
-    }
-
-    public String lastName() {
-        return lastName;
     }
 
     public String fullName() {

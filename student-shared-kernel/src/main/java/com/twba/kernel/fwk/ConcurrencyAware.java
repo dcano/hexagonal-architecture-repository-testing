@@ -2,7 +2,7 @@ package com.twba.kernel.fwk;
 
 public interface ConcurrencyAware {
 
-    long getVersion();
+    Long getVersion();
     boolean isStaleWith(ConcurrencyAware existingEntity);
 
 

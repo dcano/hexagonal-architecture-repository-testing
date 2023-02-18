@@ -1,14 +1,14 @@
 package com.twba.kernel.fwk;
 
-
-import javax.validation.Valid;
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.Valid;
 
 /**
  * Created by alonsotd on 10/10/2017.
  */
 
 public abstract class MultiTenantEntity extends Entity {
+
     @NotNull(message = "lblTenantIdNotNull")
     @Valid
     private final TenantId tenantId;

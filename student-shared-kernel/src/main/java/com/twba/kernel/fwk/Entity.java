@@ -1,8 +1,9 @@
 package com.twba.kernel.fwk;
 
-import javax.validation.Valid;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.PositiveOrZero;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.PositiveOrZero;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -15,24 +16,23 @@ public abstract class Entity extends ModelValidator implements ConcurrencyAware 
     @NotNull
     @Valid
     protected final List<@NotNull Event<? extends DomainEventPayload>> events;
-    @PositiveOrZero
-    private long version;
+    private Long version;
 
-    public Entity(long version) {
+    public Entity(Long version) {
         this.events = new ArrayList<>();
         this.version = version;
         this.validateProperty("events");
     }
 
     @Override
-    public long getVersion() {
+    public Long getVersion() {
         return version;
     }
 
     protected void publishEvent(Event<? extends DomainEventPayload> event) {
         event.setAggregateType(aggregateType());
         event.setAggregateId(aggregateId());
-        event.setEventStreamVersion(version + events.size());
+        event.setEventStreamVersion(Objects.isNull(version)?0:version + events.size());
         this.events.add(event);
     }
 

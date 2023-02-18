@@ -13,6 +13,9 @@
     <module>student-application</module>
     <module>student-domain</module>
     <module>student-shared-kernel</module>
+    <module>student-repository-inmemory</module>
+    <module>student-repository-jpa</module>
+    <module>student-repository-test</module>
   </modules>
 
   <properties>
@@ -20,6 +23,10 @@
     <java.version>17</java.version>
     <maven.compiler.source>17</maven.compiler.source>
     <maven.compiler.target>17</maven.compiler.target>
+    <spring-boot.version>3.0.2</spring-boot.version>
+    <hypersistence-utils-hibernate-60.version>3.1.2</hypersistence-utils-hibernate-60.version>
+    <testcontainers.version>1.17.6</testcontainers.version>
+    <postgresql.version>42.5.4</postgresql.version>
   </properties>
 
   <dependencyManagement>
@@ -30,16 +37,54 @@
         <version>${project.version}</version>
       </dependency>
       <dependency>
+        <groupId>com.twba</groupId>
+        <artifactId>student-application</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.twba</groupId>
+        <artifactId>student-repository-inmemory</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.twba</groupId>
+        <artifactId>student-repository-jpa</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.twba</groupId>
+        <artifactId>student-repository-test</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-dependencies</artifactId>
-        <version>3.0.0</version>
+        <version>${spring-boot.version}</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
       <dependency>
-        <groupId>javax.validation</groupId>
-        <artifactId>validation-api</artifactId>
-        <version>2.0.1.Final</version>
+        <groupId>org.testcontainers</groupId>
+        <artifactId>testcontainers-bom</artifactId>
+        <version>${testcontainers.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+      <dependency>
+        <groupId>jakarta.validation</groupId>
+        <artifactId>jakarta.validation-api</artifactId>
+        <version>3.0.2</version>
+      </dependency>
+      <dependency>
+        <groupId>org.glassfish</groupId>
+        <artifactId>jakarta.el</artifactId>
+        <version>4.0.2</version>
+        <scope>test</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.glassfish.web</groupId>
+        <artifactId>javax.el</artifactId>
+        <version>2.2.6</version>
       </dependency>
       <dependency>
         <groupId>javax.inject</groupId>
@@ -67,6 +112,21 @@
         <groupId>io.projectreactor</groupId>
         <artifactId>reactor-core</artifactId>
         <version>3.4.24</version>
+      </dependency>
+      <dependency>
+        <groupId>io.hypersistence</groupId>
+        <artifactId>hypersistence-utils-hibernate-60</artifactId>
+        <version>${hypersistence-utils-hibernate-60.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.hibernate.validator</groupId>
+        <artifactId>hibernate-validator</artifactId>
+        <version>8.0.0.Final</version>
+      </dependency>
+      <dependency>
+        <groupId>org.postgresql</groupId>
+        <artifactId>postgresql</artifactId>
+        <version>${postgresql.version}</version>
       </dependency>
     </dependencies>
   </dependencyManagement>
