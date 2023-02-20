@@ -1,10 +1,8 @@
 package com.twba.students.db;
 
-import io.hypersistence.utils.hibernate.type.json.JsonBinaryType;
 import jakarta.persistence.*;
 import lombok.Data;
 import org.hibernate.annotations.JdbcTypeCode;
-import org.hibernate.annotations.Type;
 import org.hibernate.type.SqlTypes;
 
 import java.time.LocalDate;
@@ -25,7 +23,6 @@ public class StudentEntity {
 
     @Id
     private String id;
-
     private String firstName;
     private String lastName;
     private LocalDate birthDate;
